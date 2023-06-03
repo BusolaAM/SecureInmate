@@ -49,7 +49,7 @@ const InmateSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-     medical_condition : {
+     med_condition : {
       type: String,
       required: true,
     },
@@ -61,11 +61,11 @@ const InmateSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-     bookingDate : {
+     bookDate : {
       type: Date,
       required: true,
     },
-     booking_officer : {
+     book_officer : {
       type: String,
       required: true,
     },
@@ -73,11 +73,11 @@ const InmateSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-     booking_time : {
+     book_time : {
       type: String,
       required: true,
     },
-     arresting_agency : {
+     arrest_agency : {
       type: String,
       required: true,
     },
