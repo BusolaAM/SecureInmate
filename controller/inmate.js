@@ -14,7 +14,7 @@ exports.createNewInmate = asyncHandler(async (req, res, next) => {
   console.log(req.body);
   console.log(req.params.id);
   const _id = req.params.id;
-  const { inmate_name, offence_category,gender } = req.body;
+  const { inmate_name, offence_category, gender, date_of_birth, ethnicity, social_security, phone_number, height, weight, eye_color, hair_color, scar, medical_condition, disability, id_number, bookingDate, booking_officer, arrest_oficer, booking_time, arresting_agency, arrest_location, arrest_time, arrestDate, verdict, sentencing_court, belongings, ImagePath, fingerprint, endDate, isActive } = req.body;
 
   try {
     console.log('request from front =>', req.body);
@@ -40,6 +40,34 @@ exports.createNewInmate = asyncHandler(async (req, res, next) => {
       reg_officer: email,
       inmate_number: InmateCoded,
       offence_category: offence_category,
+      date_of_birth: date_of_birth,
+      ethnicity: ethnicity,
+      social_security: social_security,
+      phone_number: phone_number,
+      height: height,
+      weight: weight,
+      eye_color: eye_color,
+      hair_color: hair_color,
+      scar: scar,
+      medical_condition: medical_condition,
+      disability: disability,
+      id_number: id_number,
+      bookingDate: bookingDate,
+      booking_officer: booking_officer,
+      arrest_officer: arrest_officer,
+      booking_time: booking_time,
+      arresting_agency: arresting_agency,
+      arrest_location: arrest_location,
+      arrest_time: arrest_time,
+      arrestDate: arrestDate,
+      verdict: verdict,
+      sentencing_court: sentencing_court,
+      belongings: belongings,
+      ImagePath: ImagePath,
+      fingerprint: fingerprint,
+      endDate: endDate,
+      isActive: isActive
+      
     });
 
     console.log(`pool before save ${inmate}`);
