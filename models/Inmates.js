@@ -1,20 +1,21 @@
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const InmateSchema = new mongoose.Schema(
+
   {
     inmate_name: {
       type: String,
       required: true,
     },
+Penitentiary: {
+      type: String,
+      required: false,
+    },
     inmate_number: {
       type: String,
       required: false,
     },
-    facility_name: {
-      type: String,
-      required: true,
-    },
-    offence_category: {
+       offence_category: {
       type: String,
       required: true,
     },
@@ -26,125 +27,109 @@ const InmateSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+   id_number: {
+      type: String,
+      required: false,
+    },
     date_of_birth: {
       type: String,
-      required: true,
+      required: false,
     },
     ethnicity: {
       type: String,
-      required: true,
+      required: false,
     },
     social_security: {
       type: String,
-      required: true,
+      required: false,
     },
     phone_number: {
       type: String,
-      required: true,
+      required: false,
     },
     height: {
       type: String,
-      required: true,
+      required: false,
     },
     weight: {
       type: String,
-      required: true,
+      required: false,
     },
     eye_color: {
       type: String,
-      required: true,
+      required: false,
     },
     hair_color: {
       type: String,
-      required: true,
+      required: false,
     },
-    scar_: {
+    scar: {
       type: String,
-      required: true,
+      required: false,
     },
-    med_condition: {
+    medical_condition: {
       type: String,
-      required: true,
+      required: false,
     },
     disability: {
       type: String,
-      required: true,
+      required: false,
     },
     id_number: {
       type: String,
-      required: true,
+      required: false,
     },
-    nok_name: {
+    bookingDate: {
       type: String,
-      required: true,
+      required: false,
     },
-    nok_addy: {
+    booking_officer: {
       type: String,
-      required: true,
+      required: false,
     },
-    nok_contact: {
+    arrest_officer: {
       type: String,
-      required: true,
+      required: false,
     },
-    bookDate: {
-      type: Date,
-      required: true,
-    },
-    book_officer: {
+    booking_time: {
       type: String,
-      required: true,
-    },
-    arrest_oficer: {
-      type: String,
-      required: true,
-    },
-    book_time: {
-      type: String,
-      required: true,
-    },
-    arrest_agency: {
-      type: String,
-      required: true,
+      required: false,
     },
     arrest_location: {
       type: String,
-      required: true,
+      required: false,
     },
     arrest_time: {
       type: String,
-      required: true,
+      required: false,
     },
     arrestDate: {
-      type: Date,
-      required: true,
+      type: String,
+      required: false,
     },
     verdict: {
       type: String,
-      required: true,
+      required: false,
     },
     sentencing_court: {
       type: String,
-      required: true,
+      required: false,
     },
     belongings: {
       type: String,
-      required: true,
+      required: false,
     },
     ImagePath: {
       type: String,
-      required: true,
+      required: false,
     },
-    fingerPrint: {
+    fingerprint: {
       type: String,
-      required: true,
+      required: false,
     },
     endDate: {
-      type: Date,
-      required: true,
-    },
-    isActive: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   { timestamps: true }
