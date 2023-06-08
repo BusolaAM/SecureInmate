@@ -1,7 +1,7 @@
 {
-  "name": "inmate-database-app",
+  "name": "SecureInmate",
   "version": "1.0.0",
-  "description": "Inmate database Management application",
+  "description": "Inmate database Management System",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2virtual/Inmate-database-app.git"
+    "url": "git+https://github.com/BusolaAM/SecureInmate.git"
   },
   "author": "Olami",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/2virtual/Inmate-database-app/issues"
+    "url": "https://github.com/BusolaAM/SecureInmate/issues"
   },
-  "homepage": "https://github.com/2virtual/Inmate-database-app#readme",
+  "homepage": "https://github.com/BusolaAM/SecureInmate#readme",
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "bcryptjs": "^2.4.3",
@@ -49,8 +49,12 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "referral-codes": "^2.0.3",
+    "rimraf": "^5.0.1",
     "slugify": "^1.6.6",
     "sweetalert2": "^11.7.11",
     "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
