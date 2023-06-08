@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/2virtual/Inmate-database-app#readme",
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cloudinary": "^1.37.0",
@@ -33,6 +34,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
+    "formik": "^2.4.1",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.4",
@@ -48,6 +50,7 @@
     "passport-jwt": "^4.0.1",
     "referral-codes": "^2.0.3",
     "slugify": "^1.6.6",
+    "sweetalert2": "^11.7.11",
     "validator": "^13.9.0"
   }
 }
