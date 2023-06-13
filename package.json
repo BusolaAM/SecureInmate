@@ -56,10 +56,6 @@
     "validator": "^13.9.0"
   },
   "devDependencies": {
-
-    "gh-pages": "^5.0.0",
-    "rimraf": "^5.0.1"
-=======
     "babel-cli": "^6.26.0"
   }
 }
