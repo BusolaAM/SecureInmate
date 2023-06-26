@@ -143,4 +143,4 @@ The Inmate Database Management System (IDMS) is designed to simplify and streaml
 
 Busola Atinsola [Github](https://github.com/BusolaAM) / [Twitter](https://twitter.com/PinkeeBAM) / [Linkedin](https://www.linkedin.com/in/PinkeeBAM/)
 
-Olalekan Ogundipe [Github](https://github.com/2virtual) / [Twitter](https://twitter.com/) / [Linkedin](https://www.linkedin.com/in//)
+Olalekan Ogundipe [Github](https://github.com/2virtual) / [Twitter](https://twitter.com/TechieAfrica) / [Linkedin](https://www.linkedin.com/in/olalekan-Ogundipe/)
