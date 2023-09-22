@@ -36,12 +36,14 @@ if (process.env.NODE_ENV === 'development') {
 // Route files
  
 const auth  = require('./routes/authV3');
+const inmate = require('./routes/inmateRoutes');
 const images = require('./routes/imagesRoutes')
 const errorHandler =require('./middleware/error');
 
 //mount routers  
  
 app.use('/api/v3/auth', auth); 
+app.use('/api/v1/inmate', inmate);
 app.use('/api/v1/images', images);
 app.use(errorHandler);
 
