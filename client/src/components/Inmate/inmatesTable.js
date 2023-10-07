@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import { ButtonBase } from '@mui/material';
 import face from '../../assets/img/face-0.jpg';
+ 
 import Box from '@mui/material/Box';
 import RightSidebar from './RightSidebar';
 import { RiFileExcel2Fill } from 'react-icons/ri';
@@ -36,6 +38,7 @@ import Delete from '@mui/icons-material/Delete';
 import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
 import { Popup } from 'semantic-ui-react';
+import UploadPhoto from './uploadPhoto';
 // import face from '../../../../assets/face-0.jpg';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -166,7 +169,7 @@ const FilterableTable = ({ drawer }) => {
   const [selectedInmate, setSelectedInmate] = useState(null);
   const [isUploadVisible, setUploadVisible] = useState(false);
 
-  const [resume, setResume] = useState({});
+  const [images, setImages] = useState({});
   const [url, setUrl] = useState({});
   const [uploadedFile, setUploadedFile] = useState({});
   const [preview, setPreview] = useState(false);
@@ -211,44 +214,49 @@ const FilterableTable = ({ drawer }) => {
     hiddenFileInput.current.click();
   };
   const handleChange = (event) => {
+    const resume = event.target.files[0];
     const fileUploaded = event.target.files[0];
     const url = URL.createObjectURL(fileUploaded);
     setUrl(url);
-    setResume(fileUploaded);
-    console.log(fileUploaded.name);
+    setImages(fileUploaded);
+    console.log(fileUploaded.name);   
     console.log(fileUploaded);
-    console.log(resume);
+    console.log('images : ',images);
     setPreview(true);
-  };
+  };    
   // function to upload inmate picture
   const onSubmitPhoto = async () => {
-  try {
-    if (resume) {
-      console.log('photo+', selectedInmate._id);
+    try {
+      if (images) {
+        console.log('photo+', selectedInmate._id);
+        const id = selectedInmate._id
+        const formData = new FormData();
+        formData.append('file', images, images.name);
+        console.log(formData.has('file')); // This will log true if the image key exists in the FormData
 
-      const formData = new FormData();
-      formData.append('image', resume, resume.name);
-
-      const response = await axios.post(
-        `/api/v1/images/inmate/${selectedInmate._id}`,
-        formData
-      );
-
-      console.log('Server response:');
-      console.log(response.data);
-
-      // Handle success scenario
-      alert('Uploaded successfully');
-    } else {
-      alert('Please select an image');
+        console.log('formData:', formData);  // Log the formData object
+  
+        const response = await axios.post(
+          `/api/v1/images/upload/${id}`,
+          formData
+        );
+  
+        console.log('Server response:');
+        console.log(response.data);     
+  
+        // Handle success scenario
+        alert('Uploaded successfully');
+      } else {
+        alert('Please select an image');
+      }
+    } catch (error) {
+      console.log('Error uploading image:', error);
+      // Handle error scenario
+      alert('Image upload failed. Please try again.');
     }
-  } catch (error) {
-    console.log('Error uploading image:', error);
-    // Handle error scenario
-    alert('Image upload failed. Please try again.');
-  }
-};
-
+  };
+  
+  
 
   // Toggle function
   const toggleUpload = () => {
@@ -281,19 +289,7 @@ const FilterableTable = ({ drawer }) => {
   const endIndex = startIndex + rowsPerPage;
   const paginatedRows = filteredRows.slice(startIndex, endIndex);
 
-
-  // const filteredRows = inmates.filter((row) => {
-  //   return Object.values(row).some((value) =>
-  //     String(value).toLowerCase().includes(searched.toLowerCase())
-  //   );
-  // });
-
-  // const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
-  // const startIndex = page * rowsPerPage;
-  // const endIndex = startIndex + rowsPerPage;
-  // const paginatedRows = filteredRows.slice(startIndex, endIndex);
-
-  // Modify dates
+ 
   const formatDate = (isoDateString) => {
     const date = new Date(isoDateString);
 
@@ -564,7 +560,9 @@ const FilterableTable = ({ drawer }) => {
   </DialogActions>
   {isUploadVisible && (
     <Box display="flex" flexDirection="column" alignItems="center" mt={2}>
-      <IconButton onClick={handleClick}>
+      
+      {/* <UploadPhoto id={selectedInmate._id} />   */}
+        <IconButton onClick={handleClick}>
         <Popup
           trigger={
             <svg
@@ -589,8 +587,8 @@ const FilterableTable = ({ drawer }) => {
         >
           Upload existing picture
         </Popup>
-      </IconButton>
-      <label>
+      </IconButton> 
+       <label>
         {preview ? (
           <img src={url} width="80px" height="80px" alt="" />
         ) : (
@@ -598,19 +596,19 @@ const FilterableTable = ({ drawer }) => {
         )}
         <input
     type="file"
-    name="images"
+    name="file "
     accept=".jpg,.png,.jpeg"
     ref={hiddenFileInput}
     onChange={handleChange}
     style={{ display: 'none' }}
         />
-      </label>
-      <Button variant="contained" color="primary" onClick={onSubmitPhoto} >
+      </label>  
+     <Button variant="contained" color="primary" onClick={onSubmitPhoto} >
         Submit
-      </Button>
-    </Box>
+      </Button>   
+    </Box>     
   )}
- </BootstrapDialog>
+ </BootstrapDialog>    
 
  </div>
 
